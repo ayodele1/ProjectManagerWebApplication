@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DomainObjects
+namespace DataAccess
 {
     public class Project : IModificationHistory
     {
         public Project()
         {
             this.Users = new HashSet<User>();
+            this.Owners = new HashSet<User>();
         }
         public int Id { get; set; }
         [Required]
@@ -15,6 +17,10 @@ namespace DomainObjects
 
         public string Description { get; set; }
 
+        [InverseProperty("ProjectsOwned")]
+        public ICollection<User> Owners { get; set; }
+
+        [InverseProperty("Projects")]
         public ICollection<User> Users { get; set; }
 
         public ICollection<UserStory> UserStories { get; set; }

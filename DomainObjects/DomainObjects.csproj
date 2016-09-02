@@ -7,7 +7,7 @@
     <ProjectGuid>{099659A7-F8EC-4AF1-9449-31BF3692C2B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DomainObjects</RootNamespace>
+    <RootNamespace>DataAccess</RootNamespace>
     <AssemblyName>DomainObjects</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -57,6 +57,18 @@
     <Compile Include="Migrations\201608310136469_IModificationHistory.Designer.cs">
       <DependentUpon>201608310136469_IModificationHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609011348594_ProjectOwners.cs" />
+    <Compile Include="Migrations\201609011348594_ProjectOwners.Designer.cs">
+      <DependentUpon>201609011348594_ProjectOwners.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609011526309_UpdateUserResponsibilitiesTable.cs" />
+    <Compile Include="Migrations\201609011526309_UpdateUserResponsibilitiesTable.Designer.cs">
+      <DependentUpon>201609011526309_UpdateUserResponsibilitiesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609011816169_ProjectOwners1.cs" />
+    <Compile Include="Migrations\201609011816169_ProjectOwners1.Designer.cs">
+      <DependentUpon>201609011816169_ProjectOwners1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectManagerContext.cs" />
@@ -67,7 +79,9 @@
     <Compile Include="UserStoryTask.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +90,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608310136469_IModificationHistory.resx">
       <DependentUpon>201608310136469_IModificationHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609011348594_ProjectOwners.resx">
+      <DependentUpon>201609011348594_ProjectOwners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609011526309_UpdateUserResponsibilitiesTable.resx">
+      <DependentUpon>201609011526309_UpdateUserResponsibilitiesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609011816169_ProjectOwners1.resx">
+      <DependentUpon>201609011816169_ProjectOwners1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

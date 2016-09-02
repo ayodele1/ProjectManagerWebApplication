@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DomainObjects
+namespace DataAccess
 {
     public class UserStory : IModificationHistory
     {

@@ -1,4 +1,4 @@
-namespace DomainObjects.Migrations
+namespace DataAccess.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

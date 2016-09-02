@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 
-namespace DomainObjects
+namespace DataAccess
 {
     public class ProjectManagerContext : DbContext
     {
@@ -33,6 +33,30 @@ namespace DomainObjects
                     history.DateCreated = DateTime.Now;
             }
             return base.SaveChanges();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            ///Shows the project each user is working on
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Projects)
+                .WithMany(p => p.Users)
+                .Map(up =>
+                    {
+                        up.MapLeftKey("UserId");
+                        up.MapRightKey("ProjectId");
+                        up.ToTable("UserProjects");
+                    });
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.ProjectsOwned)
+                .WithMany(p => p.Owners)
+                .Map(up =>
+                {
+                    up.MapLeftKey("UserId");
+                    up.MapRightKey("ProjectId");
+                    up.ToTable("UserProjectOwners");
+                });
         }
     }
 }
