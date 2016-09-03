@@ -5,11 +5,9 @@ namespace DomainObjects
 {
     public class UserResponsibilityRepository
     {
-        private ProjectManagerContext context;
-
         public ICollection<UserResponsibility> GetAll()
         {
-            using (context = new ProjectManagerContext())
+            using (var context = new ProjectManagerContext())
             {
                 return context.UserResponsibilites.AsNoTracking().ToList();
             }

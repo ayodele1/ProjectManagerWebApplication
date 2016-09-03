@@ -12,7 +12,7 @@ namespace ProjectManager.IntegrationTests
             UserName = "ayodele",
             Email = "awoleyeayodele1@gmail.com",
             Password = "ayodele",
-            Role = 'A',
+            Role = "A",
             ResponsibilityId = 1
         };
         [Test]
@@ -31,7 +31,7 @@ namespace ProjectManager.IntegrationTests
             Assert.That(userToGet, Is.Null);
         }
 
-        [Test,RollBack]
+        [Test, RollBack]
         public void ShouldDeleteUser()
         {
             _testUserRepo.AddUser(_testUser);

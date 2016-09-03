@@ -51,6 +51,7 @@
     <Compile Include="ProjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />
+    <Compile Include="UserResponsibilityRepository.cs" />
     <Compile Include="UserStoryRepository.cs" />
     <Compile Include="UserStoryTaskRepository.cs" />
   </ItemGroup>

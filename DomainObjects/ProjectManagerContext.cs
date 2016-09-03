@@ -31,6 +31,13 @@ namespace DomainObjects
                 history.DateModified = DateTime.Now;
                 if (history.DateCreated == DateTime.MinValue)
                     history.DateCreated = DateTime.Now;
+
+            }
+
+            foreach (var domainObjects in ChangeTracker.Entries()
+                .Where(dObject => dObject.Entity is User))
+            {
+                this.Configuration.ValidateOnSaveEnabled = false;
             }
             return base.SaveChanges();
         }
@@ -59,5 +66,6 @@ namespace DomainObjects
                     up.ToTable("UserProjectOwners");
                 });
         }
+
     }
 }

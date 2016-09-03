@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace ProjectManager.Web.Areas.General.Controllers
 {
@@ -10,6 +6,11 @@ namespace ProjectManager.Web.Areas.General.Controllers
     {
         // GET: General/Home
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Welcome()
         {
             return View();
         }

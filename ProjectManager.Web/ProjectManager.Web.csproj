@@ -160,7 +160,7 @@
     <Compile Include="Areas\Authentication\Controllers\RegisterController.cs" />
     <Compile Include="Areas\General\Controllers\HomeController.cs" />
     <Compile Include="Areas\General\GeneralAreaRegistration.cs" />
-    <Compile Include="Areas\Authentication\SecurityAreaRegistration.cs" />
+    <Compile Include="Areas\Authentication\AuthenticationAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,8 +200,9 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\General\Views\web.config" />
     <Content Include="Areas\Authentication\Views\web.config" />
-    <Content Include="Areas\Authentication\Views\Register\Register.cshtml" />
     <Content Include="Areas\General\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Authentication\Views\Register\Index.cshtml" />
+    <Content Include="Areas\General\Views\Home\Welcome.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

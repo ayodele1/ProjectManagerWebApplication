@@ -13,7 +13,7 @@ namespace DomainObjects.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201609030344502_Initial"; }
+            get { return "201609031408095_Initial"; }
         }
         
         string IMigrationMetadata.Source
