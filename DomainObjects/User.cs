@@ -1,47 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 namespace DomainObjects
 {
     [MetadataType(typeof(UserValidation))]
     public class User : IModificationHistory
     {
-        public class UniqueUsernameAttribute : ValidationAttribute
-        {
-            protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-            {
-                var userNameToValidate = value.ToString();
-
-                using (var context = new ProjectManagerContext())
-                {
-                    var existingUsername = context.Users.AsNoTracking().FirstOrDefault(u => string.Equals(u.UserName, userNameToValidate));
-                    if (existingUsername != null)
-                        return new ValidationResult("Username already Exists");
-                    return ValidationResult.Success;
-                }
-            }
-        }
-
-        public class UniqueEmailAttribute : ValidationAttribute
-        {
-            protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-            {
-                var emailToValidate = value.ToString();
-
-                using (var context = new ProjectManagerContext())
-                {
-                    var existingEmail = context.Users.AsNoTracking().FirstOrDefault(u => string.Equals(u.Email, emailToValidate));
-                    if (existingEmail != null)
-                        return new ValidationResult("Emailaaaaa already Exists");
-                    return ValidationResult.Success;
-                }
-            }
-        }
         public User()
         {
             this.Projects = new HashSet<Project>();
             this.ProjectsOwned = new HashSet<Project>();
+        }
+
+        public User(string role)
+            : this()
+        {
+            this.Role = role;
         }
         public int Id { get; set; }
 
@@ -95,11 +69,9 @@ namespace DomainObjects
 
         class UserValidation
         {
-            [UniqueUsername]
             [Required]
             public string UserName { get; set; }
 
-            [UniqueEmail]
             [Required]
             [EmailAddress(ErrorMessage = "Emailaaaa address is invalid")]
             public string Email { get; set; }

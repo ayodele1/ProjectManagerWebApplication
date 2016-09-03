@@ -1,4 +1,5 @@
 ﻿using DomainObjects;
+using ProjectManager.Web.Areas.Authentication.ViewModels;
 using System.Web.Mvc;
 
 namespace ProjectManager.Web.Areas.Authentication.Controllers
@@ -7,6 +8,7 @@ namespace ProjectManager.Web.Areas.Authentication.Controllers
     {
         private UserResponsibilityRepository _urr = new UserResponsibilityRepository();
         private UserRepository _ur = new UserRepository();
+        ModelMapper mapper = new ModelMapper();
         // GET: Authentication/Register
         public ActionResult Index()
         {
@@ -16,14 +18,15 @@ namespace ProjectManager.Web.Areas.Authentication.Controllers
         }
 
         [HttpPost]
-        public ActionResult RegisterNewUser(User newUser)
+        public ActionResult RegisterNewUser(RegistrationModel newRegistration)
         {
             if (!ModelState.IsValid)
                 return RedirectToAction("Index");
 
             try
             {
-                newUser.Role = "User";
+                User newUser = new User("User");
+                mapper.Map<RegistrationModel, User>(newRegistration, newUser);
                 newUser.SetPasswordHash(newUser.Password); ///Hashes the password using Bcrypt.
                 _ur.AddUser(newUser);
                 return RedirectToAction("Welcome", "Home", new { area = "General" });

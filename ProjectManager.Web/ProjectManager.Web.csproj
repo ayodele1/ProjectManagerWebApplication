@@ -157,13 +157,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Authentication\Controllers\LoginController.cs" />
     <Compile Include="Areas\Authentication\Controllers\RegisterController.cs" />
+    <Compile Include="Areas\Authentication\ViewModels\LoginModel.cs" />
+    <Compile Include="Areas\Authentication\ViewModels\RegistrationModel.cs" />
     <Compile Include="Areas\General\Controllers\HomeController.cs" />
     <Compile Include="Areas\General\GeneralAreaRegistration.cs" />
     <Compile Include="Areas\Authentication\AuthenticationAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ManualMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +207,7 @@
     <Content Include="Areas\General\Views\Home\Index.cshtml" />
     <Content Include="Areas\Authentication\Views\Register\Index.cshtml" />
     <Content Include="Areas\General\Views\Home\Welcome.cshtml" />
+    <Content Include="Areas\Authentication\Views\Login\Index.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
