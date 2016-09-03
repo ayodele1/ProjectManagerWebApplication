@@ -1,18 +1,18 @@
-namespace DataAccess.Migrations
+namespace DomainObjects.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DataAccess.ProjectManagerContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DomainObjects.ProjectManagerContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DataAccess.ProjectManagerContext context)
+        protected override void Seed(DomainObjects.ProjectManagerContext context)
         {
             //  This method will be called after migrating to the latest version.
 

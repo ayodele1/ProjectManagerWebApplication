@@ -1,6 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
-namespace DataAccess
+namespace DomainObjects
 {
     public class UserStoryTask : IModificationHistory
     {

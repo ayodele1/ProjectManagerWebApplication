@@ -7,7 +7,7 @@
     <ProjectGuid>{099659A7-F8EC-4AF1-9449-31BF3692C2B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccess</RootNamespace>
+    <RootNamespace>DomainObjects</RootNamespace>
     <AssemblyName>DomainObjects</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201609011816169_ProjectOwners1.Designer.cs">
       <DependentUpon>201609011816169_ProjectOwners1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609030110559_UpdateUserStoryDbSet.cs" />
+    <Compile Include="Migrations\201609030110559_UpdateUserStoryDbSet.Designer.cs">
+      <DependentUpon>201609030110559_UpdateUserStoryDbSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectManagerContext.cs" />
@@ -99,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609011816169_ProjectOwners1.resx">
       <DependentUpon>201609011816169_ProjectOwners1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609030110559_UpdateUserStoryDbSet.resx">
+      <DependentUpon>201609030110559_UpdateUserStoryDbSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

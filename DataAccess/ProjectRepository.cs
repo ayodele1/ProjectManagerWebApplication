@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 
-namespace DataAccess
+namespace DomainObjects
 {
     public class ProjectRepository
     {
@@ -11,7 +11,7 @@ namespace DataAccess
         {
             using (context = new ProjectManagerContext())
             {
-                return context.Projects.AsNoTracking().Include(u => u.Users).Include(u => u.Owners).FirstOrDefault(p => p.Id == projectId);
+                return context.Projects.AsNoTracking().FirstOrDefault(p => p.Id == projectId);
             }
         }
 

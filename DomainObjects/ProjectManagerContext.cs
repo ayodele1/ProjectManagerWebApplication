@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 
-namespace DataAccess
+namespace DomainObjects
 {
     public class ProjectManagerContext : DbContext
     {
@@ -37,7 +37,7 @@ namespace DataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            ///Shows the project each user is working on
+            ///Shows the [NumberOfProjects - NumberOfUsers] relationship
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Projects)
                 .WithMany(p => p.Users)
@@ -48,6 +48,7 @@ namespace DataAccess
                         up.ToTable("UserProjects");
                     });
 
+            //Shows the [Projects - ProjectOwners] relationship
             modelBuilder.Entity<User>()
                 .HasMany(u => u.ProjectsOwned)
                 .WithMany(p => p.Owners)

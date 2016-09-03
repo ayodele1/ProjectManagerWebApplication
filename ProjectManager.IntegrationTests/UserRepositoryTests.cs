@@ -1,4 +1,4 @@
-﻿using DataAccess;
+﻿using DomainObjects;
 using NUnit.Framework;
 
 namespace ProjectManager.IntegrationTests

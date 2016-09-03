@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataAccess
+namespace DomainObjects
 {
     public class UserStory : IModificationHistory
     {
@@ -10,6 +10,8 @@ namespace DataAccess
         public string Title { get; set; }
 
         public string Description { get; set; }
+
+        public int UserId { get; set; } //Foreign Key
 
         public int ProjectId { get; set; } //Foreign Key
 

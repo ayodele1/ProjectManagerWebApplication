@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataAccess
+namespace DomainObjects
 {
     public interface IModificationHistory
     {
