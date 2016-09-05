@@ -1,5 +1,7 @@
 ﻿using DomainObjects;
 using ProjectManager.Web.Areas.Authentication.ViewModels;
+using System;
+using System.Data.Entity.Validation;
 using System.Web.Mvc;
 
 namespace ProjectManager.Web.Areas.Authentication.Controllers
@@ -26,12 +28,17 @@ namespace ProjectManager.Web.Areas.Authentication.Controllers
             try
             {
                 User newUser = new User("User");
-                mapper.Map<RegistrationModel, User>(newRegistration, newUser);
+                if (!mapper.Map<RegistrationModel, User>(newRegistration, newUser))
+                    throw new InvalidOperationException();
                 newUser.SetPasswordHash(newUser.Password); ///Hashes the password using Bcrypt.
                 _ur.AddUser(newUser);
                 return RedirectToAction("Welcome", "Home", new { area = "General" });
             }
-            catch (System.Exception)
+            catch (InvalidOperationException)
+            {
+                return RedirectToAction("Index");
+            }
+            catch (DbEntityValidationException)
             {
                 return RedirectToAction("Index");
             }
